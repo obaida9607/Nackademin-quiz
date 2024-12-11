@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    color: #333;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .result {
+    margin-top: 20px;
+  }
+  .result.red {
+    color: red;
+  }
+  .result.yellow {
+    color: orange;
+  }
+  .result.green {
+    color: green;
+  }
+  
