@@ -1,8 +1,21 @@
 body {
+  background-image: url('https://i.ytimg.com/vi/Hj2Ib4GdoQo/maxresdefault.jpg');
+  background-size:800px;
+  background-repeat: repeat;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: rgb(249, 1, 1); 
+}
+
+body
+{
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 20px;
-    color: #333;
+    color:rgba(255, 255, 255, 0.923);
+    stroke: black;
+    stroke-width: 20px;
+
   }
   .question {
     margin-bottom: 20px;

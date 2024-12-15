@@ -17,7 +17,7 @@ const correctAnswers = {
     q15:"D" ,
   };
   
-  // Calculate results
+  
   document.getElementById("submitQuiz").addEventListener("click", () => {
     const form = document.getElementById("quizForm");
     let score = 0;
@@ -25,7 +25,7 @@ const correctAnswers = {
     let resultMessage = "";
     let questionResults = "";
   
-    // Validate answers
+    
     for (let question in correctAnswers) {
       const userAnswer = form[question];
       const userValues = Array.isArray(correctAnswers[question]) 
@@ -44,10 +44,10 @@ const correctAnswers = {
       }
     }
   
-    // Calculate percentage
+    
     const percentage = (score / totalQuestions) * 100;
   
-    // Result feedback
+   
     if (percentage < 50) {
       resultMessage = `<p class="result red">Underkänt (${percentage.toFixed(0)}%)</p>`;
     } else if (percentage <= 75) {
@@ -56,7 +56,7 @@ const correctAnswers = {
       resultMessage = `<p class="result green">Riktigt bra jobbat (${percentage.toFixed(0)}%)</p>`;
     }
   
-    // Display results
+    
     document.getElementById("result").innerHTML = `
       ${resultMessage}
       <h3>Question Feedback</h3>
