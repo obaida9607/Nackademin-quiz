@@ -3,125 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankademin Quiz</title>
+  <title>Quiz - Ankademin</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to the Ankademin Quiz</h1>
-  <form id="quizForm">
+  <header>
+    <h1>Välkommen till Ankademins Quiz!</h1>
+    <button id="toggle-mode">Byt Tema</button>
+  </header>
+  <main id="quiz-container">
     
-    <div class="question">
-      <p>1. What is the capital of Spain?</p>
-      <input type="radio" name="q1" value="A"> A. Berlin<br>
-      <input type="radio" name="q1" value="B"> B. Madrid<br> 
-      <input type="radio" name="q1" value="C"> C. Paris<br>
-      <input type="radio" name="q1" value="D"> D. Rome<br>
-    </div>
-
-    <div class="question">
-        <p>2. What is the capital of Sweden?</p>
-        <input type="radio" name="q2" value="A"> A. Stockholm<br>
-        <input type="radio" name="q2" value="B"> B. Madrid<br> 
-        <input type="radio" name="q2" value="C"> C. Cairo<br>
-        <input type="radio" name="q2" value="D"> D. Grad<br>
-      </div>
-    </div>
-    <div class="question">
-        <p>3. What is the capital of Italy?</p>
-        <input type="radio" name="q3" value="A"> A. Berlin<br>
-        <input type="radio" name="q3" value="B"> B. Rome<br> 
-        <input type="radio" name="q3" value="C"> C. Paris<br>
-        <input type="radio" name="q3" value="D"> D. Amsterdam<br>
-      </div>
-      <div class="question">
-        <p>4. What is the capital of Turkey?</p>
-        <input type="radio" name="q4" value="A"> A. Milano<br>
-        <input type="radio" name="q4" value="B"> B. Istanbul<br> 
-        <input type="radio" name="q4" value="C"> C. Paris<br>
-        <input type="radio" name="q4" value="D"> D. Ankara<br>
-      </div>
-      <div class="question">
-        <p>5. What is the capital of Germany?</p>
-        <input type="radio" name="q5" value="A"> A. Malmö<br>
-        <input type="radio" name="q5" value="B"> B. Madrid<br> 
-        <input type="radio" name="q5" value="C"> C. Berlin<br>
-        <input type="radio" name="q5" value="D"> D. Hamburg<br>
-      </div>
-      <div class="question">
-        <p>6. What is the capital of Colombia?</p>
-        <input type="radio" name="q6" value="A"> A. Riyad<br>
-        <input type="radio" name="q6" value="B"> B. Sanatiago<br> 
-        <input type="radio" name="q6" value="C"> C. Bogota<br>
-        <input type="radio" name="q6" value="D"> D. Kabul<br>
-      </div>
-      <div class="question">
-        <p>7. What is the capital of Jaban?</p>
-        <input type="radio" name="q7" value="A"> A. New Delhi<br>
-        <input type="radio" name="q7" value="B"> B. Tokyo<br> 
-        <input type="radio" name="q7" value="C"> C. Bangkok<br>
-        <input type="radio" name="q7" value="D"> D. Peking<br>
-      </div>
-      <div class="question">
-        <p>8. What is the capital of Greec?</p>
-        <input type="radio" name="q8" value="A"> A. Santorini<br>
-        <input type="radio" name="q8" value="B"> B. Barcelona<br> 
-        <input type="radio" name="q8" value="C"> C. Paris<br>
-        <input type="radio" name="q8" value="D"> D. Athen<br>
-      </div>
-      <div class="question">
-        <p>9. What is the capital of Switzerland?</p>
-        <input type="radio" name="q9" value="A"> A. Genvua<br>
-        <input type="radio" name="q9" value="B"> B. Madrid<br> 
-        <input type="radio" name="q9" value="C"> C. Bern<br>
-        <input type="radio" name="q9" value="D"> D. Rome<br>
-      </div>
-      <div class="question">
-        <p>10. What is the capital of Egypt?</p>
-        <input type="radio" name="q10" value="A"> A. New Delhi<br>
-        <input type="radio" name="q10" value="B"> B. Hurgada<br> 
-        <input type="radio" name="q10" value="C"> C. Cairo<br>
-        <input type="radio" name="q10" value="D"> D. Alexandria<br>
-      </div>
-      <div class="question">
-        <p>11. What is the capital of Scotland?</p>
-        <input type="radio" name="q11" value="A"> A. Edinburgh<br>
-        <input type="radio" name="q11" value="B"> B. Madrid<br> 
-        <input type="radio" name="q11" value="C"> C. London<br>
-        <input type="radio" name="q11" value="D"> D. Dublin<br>
-      </div>
-      <div class="question">
-        <p>12. What is the capital of Tunisia?</p>
-        <input type="radio" name="q12" value="A"> A. Berlin<br>
-        <input type="radio" name="q12" value="B"> B. Tunis<br> 
-        <input type="radio" name="q12" value="C"> C. Cairo<br>
-        <input type="radio" name="q12" value="D"> D. Dubai<br>
-      </div>
-      <div class="question">
-        <p>13. What is the capital of India?</p>
-        <input type="radio" name="q13" value="A"> A. Bangkok<br>
-        <input type="radio" name="q13" value="B"> B. Valencia<br> 
-        <input type="radio" name="q13" value="C"> C. Paris<br>
-        <input type="radio" name="q13" value="D"> D. New Delhi<br>
-      </div>
-      <div class="question">
-        <p>14. What is the capital of USA?</p>
-        <input type="radio" name="q14" value="A"> A. NewYork<br>
-        <input type="radio" name="q14" value="B"> B. Texas<br> 
-        <input type="radio" name="q14" value="C"> C. Washington<br>
-        <input type="radio" name="q14" value="D"> D. Miami<br>
-      </div>
-      <div class="question">
-        <p>15. What is the capital of Palestine ?</p>
-        <input type="radio" name="q15" value="A"> A. Gaza<br>
-        <input type="radio" name="q15" value="B"> B. Damascus<br> 
-        <input type="radio" name="q15" value="C"> C. Istanbul<br>
-        <input type="radio" name="q15" value="D"> D. Jerusalem<br>
-      </div>
-
-    
-      <button type="button" id="submitQuiz">Submit Quiz</button>
-  </form>
-  <div id="result"></div>
+  </main>
+  <footer>
+    <p id="result"></p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>

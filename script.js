@@ -1,66 +1,74 @@
-// Questions and answers
-const correctAnswers = {
-    q1: "B",
-    q2: "A" ,
-    q3:"B" ,
-    q4:"D" ,
-    q5:"C" ,
-    q6:"C" ,
-    q7:"B" , 
-    q8:"D" ,
-    q9:"C" ,
-    q10:"C" ,
-    q11:"A" ,
-    q12:"B" , 
-    q13:"D" ,
-    q14:"C" ,
-    q15:"D" ,
-  };
-  
-  
-  document.getElementById("submitQuiz").addEventListener("click", () => {
-    const form = document.getElementById("quizForm");
-    let score = 0;
-    let totalQuestions = Object.keys(correctAnswers).length;
-    let resultMessage = "";
-    let questionResults = "";
-  
-    
-    for (let question in correctAnswers) {
-      const userAnswer = form[question];
-      const userValues = Array.isArray(correctAnswers[question]) 
-        ? [...userAnswer].filter((input) => input.checked).map((input) => input.value) 
-        : form[question].value;
-  
-      if (
-        Array.isArray(correctAnswers[question])
-          ? JSON.stringify(userValues.sort()) === JSON.stringify(correctAnswers[question].sort())
-          : userValues === correctAnswers[question]
-      ) {
-        score++;
-        questionResults += `<p>Question ${question}: Correct ✅</p>`;
-      } else {
-        questionResults += `<p>Question ${question}: Incorrect ❌</p>`;
-      }
-    }
-  
-    
-    const percentage = (score / totalQuestions) * 100;
-  
-   
-    if (percentage < 50) {
-      resultMessage = `<p class="result red">Underkänt (${percentage.toFixed(0)}%)</p>`;
-    } else if (percentage <= 75) {
-      resultMessage = `<p class="result yellow">Bra (${percentage.toFixed(0)}%)</p>`;
-    } else {
-      resultMessage = `<p class="result green">Riktigt bra jobbat (${percentage.toFixed(0)}%)</p>`;
-    }
-  
-    
-    document.getElementById("result").innerHTML = `
-      ${resultMessage}
-      <h3>Question Feedback</h3>
-      ${questionResults}
+const questions = [
+  { question: "Fc barcelona är en spansk fotboll klubb.", answer: "Sant" },
+  { question: "Saudi Arabi var första landet som vinner VM.", answer: "Falskt" },
+  { question: "Lionel Messi började sin karriär i Realmadrid.", answer: "Falskt" },
+  { question: "Zlatan Ibrahimovic har spelat för 10 klubbar.", answer: "Sant" },
+  { question: "Europamästerskapet spelas en gång varje 4 år.", answer: "Sant" },
+  { question: "Westham är klubben med flest primer league titlar .", answer: "Falskt" },
+  { question: "Stockholm derby spelas mellan Hammarby och Malmö FF.", answer: "Falskt" },
+  { question: "Bayern Munchen är klubben med flest CL titlar.", answer: "Falskt" },
+  { question: "Thiago Alcantara är en fotboll spelare som presenterar Brasilens landslag.", answer: "Falskt" },
+  { question: "Sverige lyckades med att nå kvartsfinalen i VM 2018.", answer: "Sant" },
+  { question: "Fotboll uppfans för första gången i Kina 2500 år f.kr.", answer: "Sant" },
+  { question: "Fotboll i USA kallas för (Football).", answer: "Falskt" },
+];
+
+let currentQuestion = 0;
+let correctAnswers = 0;
+
+const quizContainer = document.getElementById("quiz-container");
+const resultContainer = document.getElementById("result");
+
+function loadQuestion() {
+  if (currentQuestion < questions.length) {
+    quizContainer.innerHTML = `
+      <p>${questions[currentQuestion].question}</p>
+      <button onclick="checkAnswer('Sant')">Sant</button>
+      <button onclick="checkAnswer('Falskt')">Falskt</button>
     `;
-  });
-  
+  } else {
+    showResult();
+  }
+}
+
+
+function checkAnswer(answer) {
+  if (answer === questions[currentQuestion].answer) {
+    correctAnswers++;
+  }
+  currentQuestion++;
+  loadQuestion();
+}
+
+
+function showResult() {
+  const percentage = (correctAnswers / questions.length) * 100;
+  let feedback = "";
+  let color = "";
+
+  if (percentage < 50) {
+    feedback = "Underkänt";
+    color = "red";
+  } else if (percentage <= 75) {
+    feedback = "Bra";
+    color = "orange";
+  } else {
+    feedback = "Riktigt bra jobbat";
+    color = "green";
+  }
+
+  resultContainer.innerHTML = `
+    <h2 style="color: ${color}">${feedback}</h2>
+    <p>Du fick ${correctAnswers} av ${questions.length} rätt!</p>
+  `;
+  quizContainer.innerHTML = "";
+}
+
+
+document.getElementById("toggle-mode").addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("light-mode");
+});
+
+
+loadQuestion();
