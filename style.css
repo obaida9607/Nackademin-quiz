@@ -1,4 +1,10 @@
-
+body {
+  background-image:url(https://activeforlife.com/content/uploads/2018/07/soccer-ball-2121x1414.jpg);
+  background-size:auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
