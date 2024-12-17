@@ -8,13 +8,12 @@ body {
 
 header {
   padding: 1rem;
-  background-color: #007acc;
+  background-color: #00426d;
   color: white;
 }
 
 button {
   padding: 0.5rem 1rem;
-  border: none;
   cursor: pointer;
 }
 
