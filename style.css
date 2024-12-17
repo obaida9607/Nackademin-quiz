@@ -1,10 +1,4 @@
-body {
-  background-image:url(https://activeforlife.com/content/uploads/2018/07/soccer-ball-2121x1414.jpg);
-  background-size:auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -12,8 +6,11 @@ body {
   text-align: center;
 }
 
+
 header {
   padding: 1rem;
+  background-image: url(https://activeforlife.com/content/uploads/2018/07/soccer-ball-2121x1414.jpg);
+  background-position: 60%;
   background-color: #00426d;
   color: white;
 }
