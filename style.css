@@ -9,18 +9,26 @@ body {
 }
 
 header {
-  padding: 1rem;
+  padding: 4rem;
   background-image: url(https://png.pngtree.com/background/20230618/original/pngtree-soccer-field-and-stadium-in-3d-rendering-picture-image_3752844.jpg);
   background-position: 66%;
   color: white;
 }
 
+
+
 button {
+  background-color: #0088f8;
   margin: 10px;
-  color: #0088f8;
-  padding: 10px 20px;
+  color: #ffffff;
+  padding: 4px 20px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: #2d3b43;
 }
 
 main {
@@ -38,7 +46,7 @@ main {
 
 
 body.dark-mode {
-  background-color: #333;
+  background-color: #000000;
   color: white;
 }
 
