@@ -1,22 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz - Ankademin</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankademins Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Välkommen till Ankademins Quiz!</h1>
-    <button id="toggle-mode">Byt Tema</button>
-  </header>
-  <main id="quiz-container">
-  
+    <header>
+        <h1>Välkommen till Ankademins Quiz!</h1>
+        <button id="toggleTheme">Byt Tema</button>
+    </header>
+
+    <main>
+        <div id="quiz-container">
+            
+          <div id="quiz-container">
+           
+            <div class="question" id="question-1">
+                <p>1. FC Barcelona är en spansk fotbollsklubb.</p>
+                <button class="answer-btn" data-correct="true">Sant</button>
+                <button class="answer-btn" data-correct="false">Falskt</button>
+            </div>
+            
+            <div class="question" id="question-2">
+                <p>2. Saudi Arabi var första landet som vinner VM.</p>
+                <button class="answer-btn" data-correct="false">Sant</button>
+                <button class="answer-btn" data-correct="true">Falskt</button>
+            </div>
+           
+            <div class="question" id="question-3">
+                <p>3. Lionel Messi började sin karriär i Realmadrid.</p>
+                <button class="answer-btn" data-correct="false">Sant</button>
+                <button class="answer-btn" data-correct="true">Falskt</button>
+            </div>
+
+            <div class="question" id="question-4">
+              <p>4. Zlatan Ibrahimovic har spelat för 10 klubbar.</p>
+              <button class="answer-btn" data-correct="true">Sant</button>
+              <button class="answer-btn" data-correct="false">Falskt</button>
+            </div>
+
+            <div class="question" id="question-5">
+            <p>5. Europamästerskapet spelas en gång varje 4 år.</p>
+            <button class="answer-btn" data-correct="true">Sant</button>
+            <button class="answer-btn" data-correct="false">Falskt</button>
+            </div>
+
+            <div class="question" id="question-6">
+          <p>6. Westham är klubben med flest primer league titlar.</p>
+          <button class="answer-btn" data-correct="false">Sant</button>
+          <button class="answer-btn" data-correct="true">Falskt</button>
+          </div>
+
+          <div class="question" id="question-7">
+          <p>7. Stockholm derby spelas mellan Hammarby och Malmö FF.</p>
+          <button class="answer-btn" data-correct="false">Sant</button>
+          <button class="answer-btn" data-correct="true">Falskt</button>
+         </div>
+
+         <div class="question" id="question-8">
+         <p>8. Bayern Munchen är klubben med flest CL titlar.</p>
+         <button class="answer-btn" data-correct="false">Sant</button>
+         <button class="answer-btn" data-correct="true">Falskt</button>
+         </div>
+
+         <div class="question" id="question-9">
+        <p>9. Thiago Alcantara är en fotboll spelare som presenterar Brasilens landslag.</p>
+        <button class="answer-btn" data-correct="false">Sant</button>
+        <button class="answer-btn" data-correct="true">Falskt</button>
+        </div>
+
+        <div class="question" id="question-10">
+        <p>10. Sverige lyckades med att nå kvartsfinalen i VM 2018.</p>
+        <button class="answer-btn" data-correct="true">Sant</button>
+        <button class="answer-btn" data-correct="false">Falskt</button>
+        </div>
+
+        <div class="question" id="question-11">
+        <p>11. Fotboll uppfans för första gången i Kina 2500 år f.kr.</p>
+        <button class="answer-btn" data-correct="true">Sant</button>
+        <button class="answer-btn" data-correct="false">Falskt</button>
+        </div>
+
+        <div class="question" id="question-12">
+        <p>12. Fotboll i USA kallas för (Football).</p>
+        <button class="answer-btn" data-correct="false">Sant</button>
+        <button class="answer-btn" data-correct="true">Falskt</button>
+        </div>
+
+        <div id="result-container" style="display: none;">
+          <h2>Resultat</h2>
+          <p id="result-text"></p>
+      </div>
   </main>
-  <footer>
-    <p id="result"></p>
-  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

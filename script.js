@@ -1,74 +1,67 @@
-const questions = [
-  { question: "Fc barcelona är en spansk fotboll klubb.", answer: "Sant" },
-  { question: "Saudi Arabi var första landet som vinner VM.", answer: "Falskt" },
-  { question: "Lionel Messi började sin karriär i Realmadrid.", answer: "Falskt" },
-  { question: "Zlatan Ibrahimovic har spelat för 10 klubbar.", answer: "Sant" },
-  { question: "Europamästerskapet spelas en gång varje 4 år.", answer: "Sant" },
-  { question: "Westham är klubben med flest primer league titlar .", answer: "Falskt" },
-  { question: "Stockholm derby spelas mellan Hammarby och Malmö FF.", answer: "Falskt" },
-  { question: "Bayern Munchen är klubben med flest CL titlar.", answer: "Falskt" },
-  { question: "Thiago Alcantara är en fotboll spelare som presenterar Brasilens landslag.", answer: "Falskt" },
-  { question: "Sverige lyckades med att nå kvartsfinalen i VM 2018.", answer: "Sant" },
-  { question: "Fotboll uppfans för första gången i Kina 2500 år f.kr.", answer: "Sant" },
-  { question: "Fotboll i USA kallas för (Football).", answer: "Falskt" },
-];
 
-let currentQuestion = 0;
+const questions = document.querySelectorAll(".question");
+const resultContainer = document.getElementById("result-container");
+const resultText = document.getElementById("result-text");
+const toggleThemeButton = document.getElementById("toggleTheme");
+
+
+let currentQuestionIndex = 0;
 let correctAnswers = 0;
 
-const quizContainer = document.getElementById("quiz-container");
-const resultContainer = document.getElementById("result");
 
-function loadQuestion() {
-  if (currentQuestion < questions.length) {
-    quizContainer.innerHTML = `
-      <p>${questions[currentQuestion].question}</p>
-      <button onclick="checkAnswer('Sant')">Sant</button>
-      <button onclick="checkAnswer('Falskt')">Falskt</button>
-    `;
-  } else {
-    showResult();
-  }
+function showQuestion(index) {
+    questions.forEach((question, i) => {
+        question.style.display = i === index ? "block" : "none";
+    });
 }
 
 
-function checkAnswer(answer) {
-  if (answer === questions[currentQuestion].answer) {
-    correctAnswers++;
-  }
-  currentQuestion++;
-  loadQuestion();
+function handleAnswer(event) {
+    const isCorrect = event.target.dataset.correct === "true";
+
+    if (isCorrect) {
+        correctAnswers++;
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        showQuestion(currentQuestionIndex);
+    } else {
+        showResult();
+    }
 }
 
 
 function showResult() {
-  const percentage = (correctAnswers / questions.length) * 100;
-  let feedback = "";
-  let color = "";
+    questions.forEach((q) => (q.style.display = "none")); 
+    resultContainer.style.display = "block"; 
 
-  if (percentage < 50) {
-    feedback = "Underkänt";
-    color = "red";
-  } else if (percentage <= 75) {
-    feedback = "Bra";
-    color = "orange";
-  } else {
-    feedback = "Riktigt bra jobbat";
-    color = "green";
-  }
+    const totalQuestions = questions.length;
+    const percentage = (correctAnswers / totalQuestions) * 100;
 
-  resultContainer.innerHTML = `
-    <h2 style="color: ${color}">${feedback}</h2>
-    <p>Du fick ${correctAnswers} av ${questions.length} rätt!</p>
-  `;
-  quizContainer.innerHTML = "";
+    if (percentage < 50) {
+        resultText.textContent = `Du fick ${correctAnswers} av ${totalQuestions} rätt (${Math.round(percentage)}%). Underkänt.`;
+        resultText.style.color = "red";
+    } else if (percentage <= 75) {
+        resultText.textContent = `Du fick ${correctAnswers} av ${totalQuestions} rätt (${Math.round(percentage)}%). Bra!`;
+        resultText.style.color = "orange";
+    } else {
+        resultText.textContent = `Du fick ${correctAnswers} av ${totalQuestions} rätt (${Math.round(percentage)}%). Riktigt bra jobbat!`;
+        resultText.style.color = "green";
+    }
 }
 
 
-document.getElementById("toggle-mode").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  document.body.classList.toggle("light-mode");
+toggleThemeButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 });
 
 
-loadQuestion();
+document.querySelectorAll(".answer-btn").forEach((button) => {
+    button.addEventListener("click", handleAnswer);
+});
+
+
+showQuestion(currentQuestionIndex);
+
